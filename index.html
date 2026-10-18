@@ -1,0 +1,422 @@
+<html style="margin:0;padding:0;">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Lora:ital,wght@0,400..700;1,400..700&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4/fonts/remixicon.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+<script>
+(function(){
+  var s = document.createElement('style');
+  s.textContent = ':root{--bg:#f2f8ff;--card:#ffffff;--text:#0a1e3a;--muted:#5a6b85;--accent:#008fe0;--accent-soft:rgba(0,143,224,.12);--accent2:#00c48c;--accent2-soft:rgba(0,196,140,.12);--sun:#ffb020;--border:rgba(10,30,58,.09)}'
+  + '*{box-sizing:border-box}'
+  + 'html{scroll-behavior:smooth}'
+  + '.reveal{opacity:0;transform:translateY(22px);animation:fadeUp .7s ease forwards}'
+  + '.reveal:nth-child(2){animation-delay:.12s}.reveal:nth-child(3){animation-delay:.24s}.reveal:nth-child(4){animation-delay:.36s}'
+  + '@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}'
+  + '.bar-fill{transform:scaleX(0);transform-origin:left center;animation:growBar 1.1s cubic-bezier(.22,1,.36,1) forwards}'
+  + '@keyframes growBar{to{transform:scaleX(1)}}'
+  + '.float-chip{animation:floaty 4s ease-in-out infinite}'
+  + '.float-chip.d2{animation-delay:1.3s}.float-chip.d3{animation-delay:2.2s}'
+  + '@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}'
+  + '.pulse-dot{animation:pulse 1.8s ease-in-out infinite}'
+  + '@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}'
+  + '.marquee-track{display:flex;width:max-content;animation:marquee 24s linear infinite}'
+  + '@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}'
+  + '.proj-card{transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease}'
+  + '.proj-card:hover{transform:translateY(-5px);box-shadow:0 20px 44px rgba(0,143,224,.2);border-color:var(--accent)}'
+  + '.gallery-tile{transition:transform .3s ease,box-shadow .3s ease;overflow:hidden;position:relative}'
+  + '.gallery-tile:hover{transform:scale(1.03);box-shadow:0 18px 40px rgba(10,30,58,.18)}'
+  + '.gallery-tile .play-btn{transition:transform .3s ease,background .3s ease}'
+  + '.gallery-tile:hover .play-btn{transform:translate(-50%,-50%) scale(1.15);background:#fff;color:var(--accent)}'
+  + '.nav-link{position:relative;transition:color .2s ease}'
+  + '.nav-link::after{content:"";position:absolute;left:0;bottom:-5px;width:0;height:3px;border-radius:3px;background:var(--accent);transition:width .25s ease}'
+  + '.nav-link:hover{color:var(--accent)}'
+  + '.nav-link:hover::after{width:100%}'
+  + '.btn-primary{transition:transform .2s ease,box-shadow .2s ease}'
+  + '.btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(0,143,224,.4)}'
+  + '.btn-ghost{transition:background .2s ease,border-color .2s ease,transform .2s ease}'
+  + '.btn-ghost:hover{background:var(--accent-soft);border-color:var(--accent);transform:translateY(-3px)}'
+  + '.timeline-item{position:relative;padding-left:30px}'
+  + '.timeline-item::before{content:"";position:absolute;left:8px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px var(--accent-soft)}'
+  + '.code-tag{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;}';
+  document.head.appendChild(s);
+})();
+</script>
+<div style="background-color:transparent;">
+  <div style="font-family:'Google Sans Flex','Google Sans',sans-serif;background:var(--bg);color:var(--text);">
+
+    <!-- NAV -->
+    <header style="position:sticky;top:0;z-index:50;background:rgba(242,248,255,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);">
+      <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="#top" style="font-weight:800;font-size:19px;letter-spacing:-.02em;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:9px;">
+          <span style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:18px;"><i class="ri-seo-line"></i></span>
+          Trần Hoàng Trọng<span style="color:var(--accent);">.</span>Technical SEO & Content Portfolio
+        </a>
+        <nav class="hidden md:flex items-center gap-6" style="font-size:14px;font-weight:600;color:var(--muted);">
+          <a href="#seo" class="nav-link" style="text-decoration:none;color:inherit;">SEO & Backlink</a>
+          <a href="#gallery" class="nav-link" style="text-decoration:none;color:inherit;">Video & Ảnh</a>
+          <a href="#kinhnghiem" class="nav-link" style="text-decoration:none;color:inherit;">Học vấn và Kinh nghiệm</a>
+          <a href="#hocvan" class="nav-link" style="text-decoration:none;color:inherit;"></a>
+          <a href="#lienhe" class="btn-primary" style="text-decoration:none;background:var(--accent);color:#fff;padding:10px 22px;border-radius:10px;font-weight:700;">Liên hệ</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="top" style="position:relative;overflow:hidden;">
+      <div style="position:absolute;top:-100px;right:-80px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle, rgba(0,196,140,.25), transparent 65%);pointer-events:none;"></div>
+      <div style="position:absolute;bottom:-120px;left:-80px;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle, rgba(0,143,224,.22), transparent 65%);pointer-events:none;"></div>
+      <div class="max-w-6xl mx-auto px-6 py-16 md:py-24 relative" style="display:flex;flex-wrap:wrap;gap:48px;align-items:center;">
+        <div class="reveal" style="flex:1 1 380px;min-width:0;">
+          <div style="display:inline-flex;align-items:center;gap:8px;background:var(--accent-soft);border:1px solid var(--accent);color:var(--accent);font-size:12px;font-weight:700;padding:7px 16px;border-radius:999px;margin-bottom:18px;">
+            <span class="pulse-dot" style="width:8px;height:8px;border-radius:50%;background:var(--accent2);display:inline-block;"></span>
+            TECHNICAL SEO SPECIALIST · CONTENT CREATOR
+          </div>
+          <h1 style="font-size:clamp(36px,5.5vw,58px);font-weight:800;line-height:1.08;letter-spacing:-.03em;margin:0 0 16px;">
+            Tôi hướng đến vị trí<br><span style="background:linear-gradient(100deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;">Top 1 Google</span>
+          </h1>
+          <p style="font-size:17px;line-height:1.65;color:var(--muted);max-width:540px;margin:0 0 28px;font-weight:500;">
+            <strong style="color:var(--text);">Sinh viên năm 4 ngành Thương mại điện tử, đã có kinh nghiệm thực tập SEO trong lĩnh vực bất động sản. Có kinh nghiệm triển khai SEO On-page, Off-page, Entity SEO, xây dựng Backlink, tối ưu nội dung và chỉnh sửa code website. Định hướng phát triển chuyên sâu về SEO, Digital Marketing và Thương Mại Điện Tử.
+          </p>
+          <div style="display:flex;flex-wrap:wrap;gap:14px;">
+            <a href="#seo" class="btn-primary" style="text-decoration:none;background:linear-gradient(100deg,var(--accent),var(--accent2));color:#fff;padding:14px 28px;border-radius:12px;font-weight:700;font-size:15px;display:inline-flex;align-items:center;gap:8px;">
+              Xem kết quả SEO <i class="ri-arrow-right-line"></i>
+            </a>
+            <a href="#gallery" class="btn-ghost" style="text-decoration:none;background:var(--card);color:var(--text);padding:14px 26px;border-radius:12px;font-weight:700;font-size:15px;border:2px solid var(--border);display:inline-flex;align-items:center;gap:8px;">
+              <i class="ri-video-line" style="color:var(--accent);"></i> Bộ sưu tập video & ảnh
+            </a>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:28px;margin-top:36px;">
+            <div><div style="font-size:30px;font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums;">10+</div><div style="font-size:12px;color:var(--muted);margin-top:3px;font-weight:600;">Từ khóa Top 10</div></div>
+            <div><div style="font-size:30px;font-weight:800;color:var(--accent2);font-variant-numeric:tabular-nums;">100+</div><div style="font-size:12px;color:var(--muted);margin-top:3px;font-weight:600;">Backlink chất lượng</div></div>
+            <div><div style="font-size:30px;font-weight:800;color:var(--sun);font-variant-numeric:tabular-nums;">+320%</div><div style="font-size:12px;color:var(--muted);margin-top:3px;font-weight:600;">Traffic organic TB</div></div>
+          </div>
+        </div>
+
+        <!-- Avatar / terminal card -->
+        <div class="reveal" style="flex:0 0 auto;position:relative;">
+          <div style="width:300px;background:var(--text);border-radius:18px;box-shadow:0 28px 60px rgba(10,30,58,.35);overflow:hidden;font-family:ui-monospace,Menlo,monospace;">
+            <div style="background:#13294b;padding:10px 14px;display:flex;align-items:center;gap:6px;">
+              <span style="width:11px;height:11px;border-radius:50%;background:#ff5f57;"></span>
+              <span style="width:11px;height:11px;border-radius:50%;background:#febc2e;"></span>
+              <span style="width:11px;height:11px;border-radius:50%;background:#28c840;"></span>
+              <span style="margin-left:auto;font-size:11px;color:#7ea3c9;">seo-audit.sh</span>
+            </div>
+            <div style="padding:18px;font-size:12.5px;line-height:1.9;color:#cfe3ff;">
+              <div><span style="color:#00c48c;">➜</span> audit --site client.com</div>
+              <div style="color:#7ea3c9;">Scanning 12,480 URLs...</div>
+              <div><span style="color:#00c48c;">✓</span> Core Web Vitals <span style="color:#00c48c;">PASS</span></div>
+              <div><span style="color:#00c48c;">✓</span> Schema markup <span style="color:#00c48c;">VALID</span></div>
+              <div><span style="color:#ffb020;">!</span> 14 backlinks lost → <span style="color:#ffb020;">reclaiming</span></div>
+              <div><span style="color:#00c48c;">✓</span> 37 keywords → <span style="color:#ffb020;">Top 3</span></div>
+              <div style="margin-top:6px;"><span style="color:#00c48c;">➜</span> <span style="display:inline-block;width:8px;height:14px;background:#00c48c;vertical-align:middle;animation:pulse 1s infinite;"></span></div>
+            </div>
+          </div>
+          <div class="float-chip" style="position:absolute;top:-16px;left:-24px;background:var(--sun);color:#0a1e3a;border-radius:12px;padding:9px 14px;font-size:12px;font-weight:800;box-shadow:0 10px 24px rgba(255,176,32,.4);display:flex;align-items:center;gap:6px;"><i class="ri-link"></i>DR 40 → 72</div>
+          <div class="float-chip d2" style="position:absolute;top:45%;right:-30px;background:var(--card);border:2px solid var(--accent2);border-radius:12px;padding:9px 14px;font-size:12px;font-weight:700;box-shadow:0 10px 24px rgba(0,196,140,.3);display:flex;align-items:center;gap:6px;color:var(--text);"><i class="ri-radar-line" style="color:var(--accent2);"></i>Index 100%</div>
+          <div class="float-chip d3" style="position:absolute;bottom:-14px;left:-10px;background:var(--card);border:2px solid var(--accent);border-radius:12px;padding:9px 14px;font-size:12px;font-weight:700;box-shadow:0 10px 24px rgba(0,143,224,.3);display:flex;align-items:center;gap:6px;color:var(--text);"><i class="ri-video-line" style="color:var(--accent);"></i>200+ video</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div style="background:var(--text);padding:15px 0;overflow:hidden;">
+      <div class="marquee-track">
+        <div style="display:flex;align-items:center;gap:34px;padding-right:34px;color:#fff;font-weight:700;font-size:14px;white-space:nowrap;">
+          <span>TECHNICAL SEO</span><span style="color:var(--accent2);">//</span>
+          <span>ON-PAGE OPTIMIZATION</span><span style="color:var(--sun);">//</span>
+          <span>BACKLINK BUILDING</span><span style="color:var(--accent2);">//</span>
+          <span>KEYWORD RESEARCH</span><span style="color:var(--sun);">//</span>
+          <span>Website Design & Maintenance</span><span style="color:var(--accent2);">//</span>
+          <span>Microsoft Office.</span><span style="color:var(--sun);">//</span>
+          <span>VIDEO PRODUCTION</span><span style="color:var(--accent2);">//</span>
+          <span>PHOTOGRAPHY</span><span style="color:var(--sun);">//</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:34px;padding-right:34px;color:#fff;font-weight:700;font-size:14px;white-space:nowrap;" aria-hidden="true">
+          <span>TECHNICAL SEO</span><span style="color:var(--accent2);">//</span>
+          <span>ON-PAGE OPTIMIZATION</span><span style="color:var(--sun);">//</span>
+          <span>BACKLINK BUILDING</span><span style="color:var(--accent2);">//</span>
+          <span>KEYWORD RESEARCH</span><span style="color:var(--sun);">//</span>
+          <span>Website Design & Maintenance</span><span style="color:var(--accent2);">//</span>
+          <span>Microsoft Office</span><span style="color:var(--sun);">//</span>
+          <span>VIDEO PRODUCTION</span><span style="color:var(--accent2);">//</span>
+          <span>PHOTOGRAPHY</span><span style="color:var(--sun);">//</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEO & BACKLINK SECTION -->
+    <section id="seo" class="max-w-6xl mx-auto px-6 py-16">
+      <div class="reveal" style="margin-bottom:32px;">
+        <p style="font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:800;margin:0 0 10px;">01 · SEO & Backlink</p>
+        <h2 style="font-size:32px;font-weight:800;letter-spacing:-.02em;margin:0 0 10px;">Kiến thức nền tảng</h2>
+        <p style="color:var(--muted);font-size:15px;margin:0;max-width:620px;font-weight:500;">Tôi tiếp cận SEO theo dữ liệu: audit kỹ thuật, tối ưu On-page, xây dựng backlink white-hat và theo dõi sát sao qua GA4 & Search Console.</p>
+      </div>
+
+   
+      <!-- SEO project cards -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-bottom:28px;">
+        <div class="proj-card" style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px;border-top:4px solid var(--accent);">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+            <span style="width:38px;height:38px;border-radius:10px;background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;"><i class="ri-file-list-3-line" style="font-size:18px;"></i></span>
+            <div><div style="font-weight:700;font-size:15px;">Tối ưu On-page</div><div class="code-tag" style="color:var(--muted);">title · meta · schema · internal link</div></div>
+          </div>
+          <p style="font-size:13px;line-height:1.7;color:var(--muted);margin:0 0 12px;font-weight:500;">Tái cấu trúc heading, thêm Schema FAQ/Product, tối ưu Core Web Vitals (LCP &lt; 2.5s).</p>
+          <div style="font-size:13px;font-weight:700;color:var(--accent2);">→ Tỷ lệ click tăng 45%</div>
+        </div>
+        <div class="proj-card" style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px;border-top:4px solid var(--accent2);">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+            <span style="width:38px;height:38px;border-radius:10px;background:var(--accent2-soft);color:var(--accent2);display:flex;align-items:center;justify-content:center;"><i class="ri-links-line" style="font-size:18px;"></i></span>
+            <div><div style="font-weight:700;font-size:15px;">Backlink Chất Lượng</div><div class="code-tag" style="color:var(--muted);">guest post · HARO · broken link</div></div>
+          </div>
+          <p style="font-size:13px;line-height:1.7;color:var(--muted);margin:0 0 12px;font-weight:500;">Được học và thực hành viết các bài Backlink chất lượng, điển hình như các dự án BDS về Vingroup, LotteEco, TTS, ...</p>
+          <div style="font-size:13px;font-weight:700;color:var(--accent2);">→ Domain Rating 40 → 72</div>
+        </div>
+        <div class="proj-card" style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px;border-top:4px solid var(--sun);">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+            <span style="width:38px;height:38px;border-radius:10px;background:rgba(255,176,32,.15);color:#d98a00;display:flex;align-items:center;justify-content:center;"><i class="ri-key-2-line" style="font-size:18px;"></i></span>
+            <div><div style="font-weight:700;font-size:15px;">SEO Content Quyết Định Thành Công</div><div class="code-tag" style="color:var(--muted);">Ahrefs · Search Console · cluster</div></div>
+          </div>
+          <p style="font-size:13px;line-height:1.7;color:var(--muted);margin:0 0 12px;font-weight:500;">Xây dựng 12 cụm từ khóa chủ đề, sản xuất 80+ bài SEO chuẩn E-E-A-T, liên kết nội bộ hợp lý.</p>
+          <div style="font-size:13px;font-weight:700;color:var(--accent2);">→ 500+ từ khóa Top 10</div>
+        </div>
+      </div>
+
+      <!-- Skills bars -->
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:18px;padding:26px;">
+        <h3 style="font-size:16px;font-weight:700;margin:0 0 20px;">Thang điểm kỹ năng / kỹ thuật tự đánh giá</h3>
+        <div style="display:flex;flex-wrap:wrap;gap:26px;">
+          <div style="flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:18px;">
+            <div><div style="display:flex;justify-content:space-between;font-size:13px;font-weight:700;margin-bottom:7px;"><span>Technical SEO (Website Design & Maintenance)</span><span style="color:var(--muted);">92%</span></div><div style="height:10px;background:rgba(10,30,58,.07);border-radius:999px;overflow:hidden;"><div class="bar-fill" style="width:92%;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent2));"></div></div></div>
+            <div><div style="display:flex;justify-content:space-between;font-size:13px;font-weight:700;margin-bottom:7px;"><span>SEO Content, Entity SEO, Backlink, SEO ON, OFF Page</span><span style="color:var(--muted);">88%</span></div><div style="height:10px;background:rgba(10,30,58,.07);border-radius:999px;overflow:hidden;"><div class="bar-fill" style="width:88%;height:100%;border-radius:999px;animation-delay:.3s;background:linear-gradient(90deg,var(--sun),var(--accent));"></div></div></div>
+          </div>
+          <div style="flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:18px;">
+            <div><div style="display:flex;justify-content:space-between;font-size:13px;font-weight:700;margin-bottom:7px;"><span>Bán Hàng (Mảng Hàng Điện Tử, CNTT)</span><span style="color:var(--muted);">85%</span></div><div style="height:10px;background:rgba(10,30,58,.07);border-radius:999px;overflow:hidden;"><div class="bar-fill" style="width:85%;height:100%;border-radius:999px;animation-delay:.1s;background:linear-gradient(90deg,var(--accent),var(--sun));"></div></div></div>
+            <div><div style="display:flex;justify-content:space-between;font-size:13px;font-weight:700;margin-bottom:7px;"><span>Media (Photoshop, Canva, Final Cut Pro, DaVinci Resolve,CapCut, Office.)</span><span style="color:var(--muted);">80%</span></div><div style="height:10px;background:rgba(10,30,58,.07);border-radius:999px;overflow:hidden;"><div class="bar-fill" style="width:80%;height:100%;border-radius:999px;animation-delay:.25s;background:linear-gradient(90deg,var(--accent2),var(--sun));"></div></div></div>
+            <div><div style="display:flex;justify-content:space-between;font-size:13px;font-weight:700;margin-bottom:7px;"><span>Giao tiếp, teamwork hiệu quả</span><span style="color:var(--muted);">90%</span></div><div style="height:10px;background:rgba(10,30,58,.07);border-radius:999px;overflow:hidden;"><div class="bar-fill" style="width:90%;height:100%;border-radius:999px;animation-delay:.4s;background:linear-gradient(90deg,var(--sun),var(--accent2));"></div></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO & PHOTO GALLERY -->
+    <section id="gallery" style="background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+      <div class="max-w-6xl mx-auto px-6 py-16">
+        <div class="reveal" style="margin-bottom:32px;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px;">
+          <div>
+            <p style="font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:800;margin:0 0 10px;">02 · Nội dung số</p>
+            <h2 style="font-size:32px;font-weight:800;letter-spacing:-.02em;margin:0;">Video & Bộ sưu tập ảnh</h2>
+          </div>
+          <div style="display:flex;gap:8px;">
+            <span style="font-size:12px;font-weight:700;padding:6px 14px;border-radius:999px;background:var(--accent-soft);color:var(--accent);"><i class="ri-video-line"></i> 200+ video</span>
+            <span style="font-size:12px;font-weight:700;padding:6px 14px;border-radius:999px;background:var(--accent2-soft);color:var(--accent2);"><i class="ri-camera-line"></i> 500+ ảnh</span>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
+          <div class="gallery-tile" style="border-radius:16px;aspect-ratio:4/3;background:linear-gradient(135deg,#008fe0,#00c48c);">
+            <div class="play-btn" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.9);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:20px;"><i class="ri-play-fill" style="margin-left:3px;"></i></div>
+            <div style="position:absolute;bottom:12px;left:14px;right:14px;color:#fff;"><div style="font-weight:700;font-size:14px;">Product Launch Video</div><div style="font-size:11px;opacity:.85;font-weight:600;"><i class="ri-time-line"></i> 0:45 · 1.2M view</div></div>
+          </div>
+          <div class="gallery-tile" style="border-radius:16px;aspect-ratio:4/3;background:linear-gradient(135deg,#ffb020,#ff7a3d);">
+            <div style="position:absolute;top:14px;right:14px;background:rgba(255,255,255,.9);color:#d98a00;font-size:11px;font-weight:800;padding:4px 10px;border-radius:999px;"><i class="ri-camera-line"></i> PHOTO</div>
+            <div style="position:absolute;bottom:12px;left:14px;right:14px;color:#fff;"><div style="font-weight:700;font-size:14px;">Bộ ảnh sản phẩm mùa hè</div><div style="font-size:11px;opacity:.9;font-weight:600;">48 ảnh · Studio</div></div>
+          </div>
+          <div class="gallery-tile" style="border-radius:16px;aspect-ratio:4/3;background:linear-gradient(135deg,#f43f8e,#7b2ff7);">
+            <div class="play-btn" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.9);color:#f43f8e;display:flex;align-items:center;justify-content:center;font-size:20px;"><i class="ri-play-fill" style="margin-left:3px;"></i></div>
+            <div style="position:absolute;bottom:12px;left:14px;right:14px;color:#fff;"><div style="font-weight:700;font-size:14px;">Brand Storytelling</div><div style="font-size:11px;opacity:.85;font-weight:600;"><i class="ri-time-line"></i> 2:30 · Short film</div></div>
+          </div>
+          <div class="gallery-tile" style="border-radius:16px;aspect-ratio:4/3;background:linear-gradient(135deg,#00c48c,#008fe0);">
+            <div style="position:absolute;top:14px;right:14px;background:rgba(255,255,255,.9);color:var(--accent2);font-size:11px;font-weight:800;padding:4px 10px;border-radius:999px;"><i class="ri-camera-line"></i> PHOTO</div>
+            <div style="position:absolute;bottom:12px;left:14px;right:14px;color:#fff;"><div style="font-weight:700;font-size:14px;">Behind the scenes</div><div style="font-size:11px;opacity:.9;font-weight:600;">Event coverage</div></div>
+          </div>
+          <div class="gallery-tile" style="border-radius:16px;aspect-ratio:4/3;background:linear-gradient(135deg,#0a1e3a,#008fe0);">
+            <div class="play-btn" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.9);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:20px;"><i class="ri-play-fill" style="margin-left:3px;"></i></div>
+            <div style="position:absolute;bottom:12px;left:14px;right:14px;color:#fff;"><div style="font-weight:700;font-size:14px;">Tutorial SEO cho người mới</div><div style="font-size:11px;opacity:.85;font-weight:600;"><i class="ri-time-line"></i> 8:12 · Series 12 tập</div></div>
+          </div>
+          <div class="gallery-tile" style="border-radius:16px;aspect-ratio:4/3;background:linear-gradient(135deg,#ff7a3d,#f43f8e);">
+            <div style="position:absolute;top:14px;right:14px;background:rgba(255,255,255,.9);color:#f43f8e;font-size:11px;font-weight:800;padding:4px 10px;border-radius:999px;"><i class="ri-camera-line"></i> PHOTO</div>
+            <div style="position:absolute;bottom:12px;left:14px;right:14px;color:#fff;"><div style="font-weight:700;font-size:14px;">Chụp chân dung công ty</div><div style="font-size:11px;opacity:.9;font-weight:600;">30 nhân sự · Corporate</div></div>
+          </div>
+        </div>
+        <p style="text-align:center;font-size:13px;color:var(--muted);margin:18px 0 0;font-weight:500;">* Thumbnail minh họa — thay bằng video/ảnh thực tế của bạn khi triển khai.</p>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="kinhnghiem" class="max-w-6xl mx-auto px-6 py-16">
+      <div class="reveal" style="margin-bottom:34px;">
+        <p style="font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:800;margin:0 0 10px;">03 · Kinh nghiệm làm việc</p>
+        <h2 style="font-size:32px;font-weight:800;letter-spacing:-.02em;margin:0;">Hành trình nghề nghiệp</h2>
+      </div>
+      <div style="position:relative;padding-left:8px;max-width:780px;">
+        <div style="position:absolute;left:13px;top:8px;bottom:8px;width:3px;border-radius:3px;background:linear-gradient(180deg,var(--accent),var(--accent2),var(--sun));"></div>
+        <div style="display:flex;flex-direction:column;gap:30px;">
+          <div class="timeline-item">
+            <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin-bottom:6px;">
+              <span style="font-size:12px;font-weight:800;color:#fff;background:linear-gradient(100deg,var(--accent),var(--accent2));padding:4px 12px;border-radius:999px;">(Tháng 06/ 2026 - Tháng 10/ 2026)</span>
+              <h3 style="font-size:18px;font-weight:800;margin:0;">Chuyên viên Technical SEO</h3>
+            </div>
+            <p style="font-size:14px;font-weight:700;color:var(--accent);margin:0 0 8px;">TTS E-commerce và Digital Marketing · TP. HCM</p>
+            <ul style="margin:0;padding-left:18px;color:var(--muted);font-size:14px;line-height:1.8;font-weight:500;">
+              <li>Triển khai SEO On-page, Off-page, xây dựng Backlink, Entity SEO, tối ưu nội dung chuẩn SEO, tăng cường traffic website ,cải thiện điểm SEO website và chỉnh sửa code web. Tư vấn, bán sản phẩm dịch vụ.
+</li>
+              <li>Kết quả: Vinhomes Saigon Park - vinhomessaigonparkvsgp.com (07/2026 - 08/2026) - Đạt 4 Key No.1 và 5 Key Top 10 Google Search.</li>
+            </ul>
+          </div>
+          <div class="timeline-item">
+            <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin-bottom:6px;">
+              <span style="font-size:12px;font-weight:800;color:#fff;background:var(--accent2);padding:4px 12px;border-radius:999px;">(03/2026 - 05/2026)</span>
+              <h3 style="font-size:18px;font-weight:800;margin:0;">Founder, Owner & Livestream Host</h3>
+            </div>
+            <p style="font-size:14px;font-weight:700;color:var(--accent2);margin:0 0 8px;">Dự án khởi nghiệp - Ăn là Thèm</p>
+            <ul style="margin:0;padding-left:18px;color:var(--muted);font-size:14px;line-height:1.8;font-weight:500;">
+              <li>Thiết kế xây dựng kênh Affiliate Ăn vặt Catsky, Langfarm,... trên Tiktok Shop. Doanh thu tăng 75% so với mục tiêu so với ban đầu.</li>
+              <li>Livestream Host chính trong dự án.</li>
+            </ul>
+          </div>
+          <div class="timeline-item">
+            <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin-bottom:6px;">
+              <span style="font-size:12px;font-weight:800;color:#0a1e3a;background:var(--sun);padding:4px 12px;border-radius:999px;">(Tháng 06/ 2022 - Tháng 08/ 2022)</span>
+              <h3 style="font-size:18px;font-weight:800;margin:0;">Nhân viên kinh doanh & CSKH, hỗ trợ kỹ thuật – hỗ trợ  IT & điện tử</h3>
+            </div>
+            <p style="font-size:14px;font-weight:700;color:#d98a00;margin:0 0 8px;">CÔNG TY TNHH MỘT THÀNH VIÊN KIM KHÍ ĐIỆN MÁY THU THỦY</p>
+            <ul style="margin:0;padding-left:18px;color:var(--muted);font-size:14px;line-height:1.8;font-weight:500;">
+              <li>Tư vấn bán hàng mảng hàng điện tử, CSKH, hỗ trợ kỹ thuật, quản lý kho.</li>
+                </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+  
+<section id="hocvan" style="background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="max-w-6xl mx-auto px-6 py-16">
+
+    <div class="reveal" style="margin-bottom:32px;">
+      <p style="font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:800;margin:0 0 10px;">04 · Học vấn & Chứng chỉ</p>
+      <h2 style="font-size:32px;font-weight:800;letter-spacing:-.02em;margin:0;">Nền tảng học thuật</h2>
+    </div>
+
+    <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
+
+      <!-- HỌC VẤN -->
+      <div style="flex:1 1 340px;min-width:0;">
+        <h3 style="font-size:15px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin:0 0 16px;display:flex;align-items:center;gap:8px;">
+          <i class="ri-graduation-cap-line" style="color:var(--accent);"></i>
+          Học vấn
+        </h3>
+
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="background:var(--bg);border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:12px;padding:18px;">
+            <div style="font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4px;">2023 – Nay</div>
+            <div style="font-weight:800;font-size:15px;margin-bottom:4px;">Đại học Công nghiệp Thành phố Hồ Chí Minh</div>
+            <div style="font-size:13px;color:var(--muted);font-weight:600;line-height:1.6;">
+              Chuyên ngành: Thương mại điện tử – Digital Marketing<br>
+              GPA: 3.3/4.0 (tính đến 01/06/2026)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHỨNG CHỈ -->
+      <div style="flex:1 1 340px;min-width:0;">
+        <h3 style="font-size:15px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin:0 0 16px;display:flex;align-items:center;gap:8px;">
+          <i class="ri-award-line" style="color:var(--sun);"></i>
+          Chứng chỉ chuyên môn
+        </h3>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px;">
+
+          <div style="background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:14px;display:flex;align-items:center;gap:10px;">
+            <span style="width:36px;height:36px;border-radius:10px;background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <i class="ri-computer-line"></i>
+            </span>
+            <div style="font-size:13px;font-weight:700;line-height:1.5;">
+              29/05/2026 – Chứng chỉ tin học văn phòng cơ bản
+            </div>
+          </div>
+
+          <div style="background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:14px;display:flex;align-items:center;gap:10px;">
+            <span style="width:36px;height:36px;border-radius:10px;background:var(--accent2-soft);color:var(--accent2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <i class="ri-translate-2"></i>
+            </span>
+            <div style="font-size:13px;font-weight:700;line-height:1.5;">
+              2026 – Chứng chỉ VSTEP (đang chờ xét)
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+    <!-- CONTACT -->
+    <section id="lienhe" class="max-w-6xl mx-auto px-6 py-16">
+      <div style="background:linear-gradient(110deg,var(--accent),var(--accent2));border-radius:24px;padding:44px 30px;text-align:center;position:relative;overflow:hidden;box-shadow:0 24px 50px rgba(0,143,224,.3);">
+        <div style="position:absolute;top:-50px;right:-30px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.12);"></div>
+        <div style="position:absolute;bottom:-60px;left:-20px;width:180px;height:180px;border-radius:50%;background:rgba(255,176,32,.3);"></div>
+        <div style="position:relative;">
+          <h2 style="font-size:clamp(26px,4vw,38px);font-weight:800;color:#fff;line-height:1.2;letter-spacing:-.02em;margin:0 0 10px;">Rất mong được hợp tác!</h2>
+          <p style="color:rgba(255,255,255,.92);font-size:15px;font-weight:500;line-height:1.8;margin:0 auto 24px;max-width:900px;width:100%;text-align:center;">Em xin kính chào Quý công ty. Em là Trần Hoàng Trọng, hiện là sinh viên năm 4 ngành Thương mại điện tử, có kinh nghiệm thực tập SEO trong lĩnh vực bất động sản. Thành thạo SEO On-page, Off-page, Entity SEO, xây dựng Backlink và tối ưu nội dung website. Có kỹ năng thiết kế, xây dựng website cơ bản, chỉnh sửa code và sử dụng các công cụ thiết kế hình ảnh, quay dựng video phục vụ Marketing. Mong muốn phát triển chuyên sâu về SEO, Web Design và Media. Rất mong có cơ hội đóng góp, học hỏi và phát triển cùng Quý công ty. Em xin chân thành cảm ơn!.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+            <a href="mailto: trongdeptryy.work@gmail.com" class="btn-primary" style="text-decoration:none;background:#fff;color:var(--accent);padding:14px 28px;border-radius:12px;font-weight:800;font-size:15px;display:inline-flex;align-items:center;gap:8px;"><i class="ri-mail-line"></i> trongdeptryy.work@gmail.com</a>
+            <a href="tel:0826541382" style="text-decoration:none;background:rgba(255,255,255,.18);color:#fff;padding:14px 24px;border-radius:12px;font-weight:800;font-size:15px;border:2px solid rgba(255,255,255,.5);display:inline-flex;align-items:center;gap:8px;transition:background .2s;" onmouseover="this.style.background='rgba(255,255,255,.3)'" onmouseout="this.style.background='rgba(255,255,255,.18)'"><i class="ri-phone-line"></i>0826541382</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer style="border-top:1px solid var(--border);background:var(--card);">
+      <div class="max-w-6xl mx-auto px-6 py-8 flex flex-wrap items-center justify-between gap:4">
+        <div style="font-size:14px;color:var(--muted);font-weight:600;">© <span id="year">2026</span> Trần Hoàng Trọng · Technical SEO & Content Portfolio</div>
+        <div style="display:flex;gap:14px;font-size:22px;color:var(--muted);">
+          <a href="trongdeptryy.work@gmail.com" style="color:inherit;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'"><i class="ri-mail-line"></i></a>
+          <a href="#" onclick="return false;" style="color:inherit;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'"><i class="ri-linkedin-line"></i></a>
+          <a href="#" onclick="return false;" style="color:inherit;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'"><i class="ri-youtube-line"></i></a>
+          <a href="#" onclick="return false;" style="color:inherit;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'"><i class="ri-instagram-line"></i></a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</div>
+<script>
+(function init(n){
+  try{
+    var el=document.getElementById('trafficChart'); if(!el)return;
+    if(typeof echarts==='undefined'){ if(n<40){setTimeout(function(){init(n+1)},250);} return; }
+    var st=getComputedStyle(document.documentElement);
+    var accent=st.getPropertyValue('--accent').trim()||'#008fe0';
+    var accent2=st.getPropertyValue('--accent2').trim()||'#00c48c';
+    var muted=st.getPropertyValue('--muted').trim()||'#5a6b85';
+    var border=st.getPropertyValue('--border').trim()||'rgba(10,30,58,.09)';
+    var c=echarts.init(el);
+    var grad={type:'linear',x:0,y:0,x2:0,y2:1,colorStops:[{offset:0,color:accent+'55'},{offset:1,color:accent+'05'}]};
+    c.setOption({
+      backgroundColor:'transparent',
+      tooltip:{trigger:'axis',backgroundColor:'#fff',borderColor:border,textStyle:{color:'#0a1e3a'}},
+      grid:{left:'3%',right:'4%',top:'8%',bottom:'3%',containLabel:true},
+      xAxis:{type:'category',boundaryGap:false,data:['T1','T2','T3','T4','T5','T6','T7','T8','T9','T10','T11','T12'],axisLabel:{color:muted,fontSize:11},axisLine:{lineStyle:{color:border}},axisTick:{show:false}},
+      yAxis:{type:'value',scale:true,axisLabel:{color:muted,fontSize:11},splitLine:{lineStyle:{color:border}}},
+      series:[{
+        name:'Organic sessions',type:'line',smooth:true,symbol:'circle',symbolSize:7,
+        data:[12,15,19,24,30,38,46,55,64,74,86,100],
+        lineStyle:{width:3,color:accent},itemStyle:{color:accent,borderColor:'#fff',borderWidth:2},
+        areaStyle:{color:grad},
+        markPoint:{data:[{type:'max',name:'Cao nhất'}],itemStyle:{color:accent2}}
+      }]
+    });
+    window.addEventListener('resize',function(){c.resize()});
+  }catch(e){console.error(e)}
+})(0);
+</script>
+<script>
+(function(){ var y=document.getElementById('year'); if(y){y.textContent=new Date().getFullYear();} })();
+</script>
+</html>
